@@ -1,326 +1,106 @@
-Ex. 1 React Lab Exercise: Understanding React File Structure
-Aim
-To create a basic React application using Vite and understand the purpose of important files and 
-folders in the React project structure.
-Learning Outcomes
-After completing this exercise, students will be able to:
-• Create a React project using Vite.
-• Identify important React files and folders.
-• Understand the role of main.jsx, App.jsx, index.html, and package.json.
-• Create and use a simple React component.
-• Run and test a React application.
-Exercise: Create a Student Information App
-Step 1: Create a React Project
-Open VS Code → Terminal and execute:
-npm create vite@latest student-app
-Select:
-Framework: React
-Variant: JavaScript
-Then:
-cd student-app
-npm install
-npm run dev
-Open the URL displayed in the terminal, usually:
-http://localhost:5173/
-Step 2: Understand the File Structure
-Your project will look approximately like this:
-student-app/
-│
-├── node_modules/
-│
-├── public/
-│
-├── src/
-│ ├── assets/
-│ ├── App.css
-│ ├── App.jsx
-│ ├── index.css
-│ └── main.jsx
-│
-├── .gitignore
-├── index.html
-├── package.json
-├── package-lock.json
-└── vite.config.js
-Important Files
-File/Folder Purpose
-src/ Contains the main application source code
-App.jsx Main React component
-main.jsx Entry point of the React application
-App.css Styles for the App component
-index.css Global CSS styles
-public/ Static files
-index.html Main HTML page
-package.json Project information and dependencies
-node_modules/ Installed packages
-vite.config.js Vite configuration
-Step 3: Examine index.html
-Open:
-index.html
-Find:
-<div id="root"></div>
-Understand
-React uses this <div> as the root container where the React application is displayed.
-Conceptually:
-index.html
- ↓
-<div id="root">
- ↓
-React Application
-Step 4: Examine main.jsx
-Open:
-src/main.jsx
-You will see code similar to:
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-createRoot(document.getElementById('root')).render(
- <StrictMode>
- <App />
- </StrictMode>,
-)
-Important point
-This line connects React with the HTML:
-document.getElementById('root')
-And this renders the App component:
-<App />
-Step 5: Modify App.jsx
-Open:
-src/App.jsx
-Replace the existing code with:
-function App() {
- return (
- <div>
- <h1>Student Information</h1>
- <h2>Ajith Kumar</h2>
- <p>Department: Computer Science and Engineering</p>
- <p>College: Saveetha Engineering College</p>
- </div>
- )
-}
-export default App
-Save the file.
-Go to the browser and observe the output.
-Step 6: Create a Component
-Inside src, create a new folder:
-components
-Create a file:
-Student.jsx
-Add:
+# React Lab Exercise 1: Understanding React File Structure
+## Name: LOGESH S
+## Roll no: 2305001014
+## Department: CSE
+
+## AIM
+### To create a React application using Vite, understand its file structure, and develop reusable components.
+
+## PROGRAM
+
+
+### i) Student.jsx
+```css
 function Student() {
  return (
  <div>
  <h2>Student Details</h2>
- <p>Name: Rahul</p>
- <p>Register Number: 101</p>
+ <p>Name: Aravindan T</p>
+ <p>Register Number: 2305001003</p>
  <p>Department: CSE</p>
  </div>
- )
+ );
 }
-export default Student
-Step 7: Import the Component
-Modify App.jsx:
-import Student from './components/Student'
-function App() {
+export default Student;
+```
+### ii) Course.jsx
+```css
+function Course() {
  return (
  <div>
+ <h2>Course Details</h2>
+ <p>Course: Web Technology</p>
+ <p>Semester: VII</p>
+ <p>Credits: 4</p>
+ </div>
+ );
+}
+export default Course;
+```
+
+### iii) Faculty.jsx
+```c
+function Faculty() {
+ return (
+ <div>
+ <h2>Faculty Details</h2>
+ <p>Name: Dr. Ajith Kumar</p>
+ <p>Department: AIDS</p>
+ <p>Designation: Professor</p>
+ </div>
+ );
+}
+export default Faculty;
+```
+
+### iv) App.jsx
+```css
+import Student from "./components/Student";
+import Course from "./components/Course";
+import Faculty from "./components/Faculty";
+import "./App.css";
+function App() {
+ return ( <div className="container">
  <h1>Student Information System</h1>
  <Student />
+ <Course />
+ <Faculty />
  </div>
- )
+ );
 }
-export default App
-Observe the relationship
-index.html
- ↓
-main.jsx
- ↓
-App.jsx
- ↓
-Student.jsx
-This is an important basic React file/component flow.
-Step 8: Add CSS
-Open:
-src/App.css
-Add:
+export default App;
+```
+
+### v) App.css
+```css
 .container {
  text-align: center;
  padding: 30px;
+ font-family: Arial, sans-serif;
 }
-.student {
- border: 1px solid #ccc;
+.container h1 {
+ color: #1976d2;
+}
+.container h2 {
+ color: #333333;
+}
+.container p {
+ color: #555555;
+ font-size: 16px;
+}
+.container > div {
+ border: 1p
+x solid #cccccc;
+ border-radius: 8px;
  padding: 20px;
  margin: 20px auto;
- width: 300px;
+ max-width: 300px;
+ background-color: #f5f9ff;
 }
-Then modify Student.jsx:
-function Student() {
- return (
- <div className="student">
- <h2>Student Details</h2>
- <p>Name: Rahul</p>
- <p>Register Number: 101</p>
- <p>Department: CSE</p>
- </div>
- )
-}
-export default Student
-Import the CSS in Student.jsx if needed:
-import '../App.css'
-Step 9: Final Project Structure
-After completing the exercise:
-student-app/
-│
-├── public/
-│
-├── src/
-│ ├── components/
-│ │ └── Student.jsx
-│ │
-│ ├── App.jsx
-│ ├── App.css
-│ ├── index.css
-│ └── main.jsx
-│
-├── index.html
-├── package.json
-└── vite.config.js
-Step 10: Student Tasks
-Task 1
-Create a second component:
-Course.jsx
-Display:
-Course: Web Technology
-Semester: V
-Credits: 4
-Task 2
-Create:
-Faculty.jsx
-Display:
-Faculty Name
-Department
-Designation
-Task 3
-Import both components into App.jsx.
-Expected structure:
-App
-├── Student
-├── Course
-└── Faculty
-Expected Output
- Student Information System
- Student Details
- Name: Rahul
- Register Number: 101
- Department: CSE
- Course Details
- Course: Web Technology
- Semester: V
- Credits: 4
- Faculty Details
- Name: Dr. Kumar
- Department: CSE
- Designation: Professor
-Viva Questions
-1. What is the purpose of src in a React project?
-2. What is the role of main.jsx?
-3. What is the purpose of App.jsx?
-4. What is JSX?
-5. What is the purpose of index.html?
-6. What is the difference between public and src?
-7. Why is package.json required?
-8. What is a React component?
-9. How do you import a component?
-10. What is the purpose of npm run dev?
-Key Concept to Remember
-React file flow:
-index.html
- ↓
- main.jsx
- ↓
- App.jsx
- ↓
-Components
-(Student / Course / Faculty)
-In React, you can use CSS in App.jsx in three simple ways. For beginners, start with CSS class + 
-App.css.
-1. Using App.css — Recommended
-App.jsx
-import './App.css'
-function App() {
- return (
- <div className="student">
- <h2>Student Details</h2>
- <p>Name: Rahul</p>
- <p>Register Number: 101</p>
- <p>Department: CSE</p>
- </div>
- )
-}
-export default App
-App.css
-.student {
- background-color: lightgray;
- padding: 20px;
-}
-.student h2 {
- color: blue;
-}
-.student p {
- color: green;
-}
-Here:
-App.jsx
- ↓
-className="student"
- ↓
-App.css
- ↓
-.student { ... }
-2. Inline CSS in App.jsx
-You can directly write CSS inside the element:
-function App() {
- return (
- <div style={{ backgroundColor: "lightgray", padding: "20px" }}>
- <h2 style={{ color: "blue" }}>
- Student Details
- </h2>
- <p style={{ color: "green" }}>
- Name: Rahul
- </p>
- </div>
- )
-}
-export default App
-Important: In JSX, CSS properties use camelCase.
-CSS JSX
---------------------------------
-background-color → backgroundColor
-font-size → fontSize
-text-align → textAlign
-3. Create a CSS object in App.jsx
-function App() {
- const headingStyle = {
- color: "blue",
- backgroundColor: "lightyellow",
- padding: "10px"
- }
- return (
- <div>
- <h2 style={headingStyle}>
- Student Details
- </h2>
- </div>
- )
-}
-export default App
-For your React lab
-I recommend teaching students in this order:
-External CSS → Inline CSS → CSS Modules
-For your current Student component, the simplest approach is:
-import './App.css'
-and then:
-.student h2 {
- color: blue;
-}
+```
+## OUTPUT
+<img width="995" height="344" alt="image" src="https://github.com/user-attachments/assets/8f8a9446-fefe-42d4-a61c-de72a2ff06ef" />
+<img width="1005" height="522" alt="image" src="https://github.com/user-attachments/assets/2583cac9-b6a8-4cd4-9334-cdc85651e800" />
+
+## RESULT
+### Thus, the Student Information System was successfully created using React components for student, course, and faculty details.
