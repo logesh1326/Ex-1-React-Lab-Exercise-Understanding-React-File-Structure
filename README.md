@@ -1,59 +1,87 @@
-# Ex. 1 React Lab Exercise: Understanding React File Structure
-
-## Exercise Number
-Exercise 1
-
-## Subject
-AI1067 - Modern Web Application Development (React JS Lab)
-
-## Student Details
-- **Name:** LOGESH S
-- **Roll No:** 2305001014
-- **Department:** B.Tech CSE
-- **College:** IST, NMV University
-
-## Objective
-To create a basic React application using Vite and understand the purpose of important files and
-
-## Description
-Ex. 1 React Lab Exercise: Understanding React File Structure 
-Aim 
-To create a basic React application using Vite and understand the purpose of important files and 
-folders in the React project structure. 
-Learning Outcomes 
-After completing this exercise, students will be able to: 
-• Create a React project using Vite. 
-• Identify important React files and folders. 
-• Understand the role of main.jsx, App.jsx, index.html, and package.json. 
-• Create and use a simple React component. 
-• Run and test a React application. 
- 
-Exercise: Create a Student Information App 
-Step 1: Create a React Project 
-Open VS Code → Terminal and execute: 
-npm create vite@latest student-app 
-Select: 
-Framework: React 
-Variant: JavaScript 
-Then: 
-cd student-app 
-npm install 
-npm run dev 
-Open the URL displayed in 
-
-## Technologies Used
-- React JS
-- Vite
-- JavaScript (JSX)
-- HTML5 / CSS3
-
-## How to Run
-```bash
-npm create vite@latest my-app -- --template react
-cd my-app
-npm install
-npm run dev
-```
-
-## Exercise Content
-See `exercise.txt` for complete exercise content and source code.
+React Lab Exercise 1: Understanding React File Structure
+Name: LOGESH S
+Roll no: 2305001014
+Department: CSE
+AIM
+To create a React application using Vite, understand its file structure, and develop reusable components.
+PROGRAM
+i) Student.jsx
+function Student() {
+ return (
+ <div>
+ <h2>Student Details</h2>
+ <p>Name: Aravindan T</p>
+ <p>Register Number: 2305001003</p>
+ <p>Department: CSE</p>
+ </div>
+ );
+}
+export default Student;
+ii) Course.jsx
+function Course() {
+ return (
+ <div>
+ <h2>Course Details</h2>
+ <p>Course: Web Technology</p>
+ <p>Semester: VII</p>
+ <p>Credits: 4</p>
+ </div>
+ );
+}
+export default Course;
+iii) Faculty.jsx
+function Faculty() {
+ return (
+ <div>
+ <h2>Faculty Details</h2>
+ <p>Name: Dr. Ajith Kumar</p>
+ <p>Department: AIDS</p>
+ <p>Designation: Professor</p>
+ </div>
+ );
+}
+export default Faculty;
+iv) App.jsx
+import Student from "./components/Student";
+import Course from "./components/Course";
+import Faculty from "./components/Faculty";
+import "./App.css";
+function App() {
+ return ( <div className="container">
+ <h1>Student Information System</h1>
+ <Student />
+ <Course />
+ <Faculty />
+ </div>
+ );
+}
+export default App;
+v) App.css
+.container {
+ text-align: center;
+ padding: 30px;
+ font-family: Arial, sans-serif;
+}
+.container h1 {
+ color: #1976d2;
+}
+.container h2 {
+ color: #333333;
+}
+.container p {
+ color: #555555;
+ font-size: 16px;
+}
+.container > div {
+ border: 1p
+x solid #cccccc;
+ border-radius: 8px;
+ padding: 20px;
+ margin: 20px auto;
+ max-width: 300px;
+ background-color: #f5f9ff;
+}
+OUTPUT
+image image
+RESULT
+Thus, the Student Information System was successfully created using React components for student, course, and faculty details.
